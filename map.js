@@ -30,8 +30,20 @@ function initMap() {
     title: "Marker"
   });
 
+  var circ = {
+    path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
+    fillColor: 'yellow',
+    fillOpacity: 0.8,
+    //scale: 1,
+    strokeColor: 'gold',
+    strokeWeight: 14
+  };
+
   //marker.setMap(map);
   map.data.loadGeoJson("/data/target_ips.json");
+  map.data.setStyle({
+  icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
+  })
 
 
 
