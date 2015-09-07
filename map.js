@@ -19,7 +19,7 @@ function initMap() {
  
  //Overlay settings
   cableOverlay = new google.maps.GroundOverlay(
-      'physical.png',
+      '/overlays/physical.png',
       imageBounds);
   cableOverlay.setOpacity(0.7)
   cableOverlay.setMap(map);
