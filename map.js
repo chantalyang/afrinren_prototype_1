@@ -19,7 +19,7 @@ function initMap() {
  
  //Overlay settings
   cableOverlay = new google.maps.GroundOverlay(
-      '/overlays/physical.png',
+      '/overlays/links.png',
       imageBounds);
   cableOverlay.setOpacity(0.7)
   cableOverlay.setMap(map);
@@ -30,8 +30,8 @@ function initMap() {
     title: "Marker"
   });
 
-  marker.setMap(map);
- // map.data.loadGeoJson("google.json");
+  //marker.setMap(map);
+  map.data.loadGeoJson("/data/target_ips.json");
 
 
 
