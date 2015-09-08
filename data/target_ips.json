@@ -8,8 +8,8 @@
        "coordinates":  [  20.744699, -8.419200 ]
     },
     "properties": {
-    "IP Address":"41.223.156.170",
-    "Name":"ANGOLATELECOM"
+    "ip_address":"41.223.156.170",
+    "name" :"ANGOLATELECOM"
     }
   },
   {
@@ -19,8 +19,8 @@
        "coordinates":  [  18.500000, -12.500000 ]
     },
     "properties": {
-    "IP Address":"41.221.254.22",
-    "Name":"EBONET"
+    "ip_address":"41.221.254.22",
+    "name" :"EBONET"
     }
   },
   {
@@ -30,8 +30,8 @@
        "coordinates":  [  25.911900, -24.646400 ]
     },
     "properties": {
-    "IP Address":"168.167.8.1",
-    "Name":"BTC-GATE1"
+    "ip_address":"168.167.8.1",
+    "name" :"BTC-GATE1"
     }
   },
   {
@@ -41,8 +41,8 @@
        "coordinates":  [  25.911900, -24.646400 ]
     },
     "properties": {
-    "IP Address":"168.167.220.2",
-    "Name":"BTC-GATE1"
+    "ip_address":"168.167.220.2",
+    "name" :"BTC-GATE1"
     }
   },
   {
@@ -52,8 +52,8 @@
        "coordinates":  [  25.000000, 0.000000 ]
     },
     "properties": {
-    "IP Address":"41.242.128.134",
-    "Name":"VODACOM-CONGO"
+    "ip_address":"41.242.128.134",
+    "name" :"VODACOM-CONGO"
     }
   },
   {
@@ -63,8 +63,8 @@
        "coordinates":  [  38.000000, 8.000000 ]
     },
     "properties": {
-    "IP Address":"213.55.95.15",
-    "Name":"EthioNet-AS"
+    "ip_address":"213.55.95.15",
+    "name" :"EthioNet-AS"
     }
   },
   {
@@ -74,8 +74,8 @@
        "coordinates":  [  38.000000, 8.000000 ]
     },
     "properties": {
-    "IP Address":"213.55.96.149",
-    "Name":"EthioNet-AS"
+    "ip_address":"213.55.96.149",
+    "name" :"EthioNet-AS"
     }
   },
   {
@@ -85,8 +85,8 @@
        "coordinates":  [  38.000000, 8.000000 ]
     },
     "properties": {
-    "IP Address":"213.55.96.150",
-    "Name":"EthioNet-AS"
+    "ip_address":"213.55.96.150",
+    "name" :"EthioNet-AS"
     }
   },
   {
@@ -96,8 +96,8 @@
        "coordinates":  [  38.000000, 8.000000 ]
     },
     "properties": {
-    "IP Address":"213.55.85.42",
-    "Name":"EthioNet-AS"
+    "ip_address":"213.55.85.42",
+    "name" :"EthioNet-AS"
     }
   },
   {
@@ -107,8 +107,8 @@
        "coordinates":  [  39.400002, 10.433300 ]
     },
     "properties": {
-    "IP Address":"213.55.101.26",
-    "Name":"EthioNet-AS"
+    "ip_address":"213.55.101.26",
+    "name" :"EthioNet-AS"
     }
   },
   {
@@ -118,8 +118,8 @@
        "coordinates":  [  38.000000, 8.000000 ]
     },
     "properties": {
-    "IP Address":"213.55.90.6",
-    "Name":"EthioNet-AS"
+    "ip_address":"213.55.90.6",
+    "name" :"EthioNet-AS"
     }
   },
   {
@@ -129,8 +129,8 @@
        "coordinates":  [  38.000000, 8.000000 ]
     },
     "properties": {
-    "IP Address":"213.55.98.158",
-    "Name":"EthioNet-AS"
+    "ip_address":"213.55.98.158",
+    "name" :"EthioNet-AS"
     }
   },
   {
@@ -140,8 +140,8 @@
        "coordinates":  [  38.000000, 1.000000 ]
     },
     "properties": {
-    "IP Address":"41.204.161.16",
-    "Name":"KENET-AS"
+    "ip_address":"41.204.161.16",
+    "name" :"KENET-AS"
     }
   },
   {
@@ -151,8 +151,8 @@
        "coordinates":  [  38.000000, 1.000000 ]
     },
     "properties": {
-    "IP Address":"41.89.96.80",
-    "Name":"KENET-AS"
+    "ip_address":"41.89.96.80",
+    "name":"KENET-AS"
     }
   },
   {
@@ -162,8 +162,8 @@
        "coordinates":  [  38.000000, 1.000000 ]
     },
     "properties": {
-    "IP Address":"41.204.161.16",
-    "Name":"KENET-AS"
+    "ip_address":"41.204.161.16",
+    "name" :"KENET-AS"
     }
   },
   {
@@ -173,8 +173,8 @@
        "coordinates":  [  47.000000, -20.000000 ]
     },
     "properties": {
-    "IP Address":"41.188.42.18",
-    "Name":"TGN"
+    "ip_address":"41.188.42.18",
+    "name" :"TGN"
     }
   },
   {
@@ -184,8 +184,8 @@
        "coordinates":  [  47.000000, -20.000000 ]
     },
     "properties": {
-    "IP Address":"41.188.61.248",
-    "Name":"TGN"
+    "ip_address":"41.188.61.248",
+    "name" :"TGN"
     }
   },
   {
@@ -195,8 +195,8 @@
        "coordinates":  [  33.299999, -13.666700 ]
     },
     "properties": {
-    "IP Address":"41.70.16.34",
-    "Name":"globe-as"
+    "ip_address":"41.70.16.34",
+    "name" :"globe-as"
     }
   },
   {
@@ -206,8 +206,8 @@
        "coordinates":  [  33.299999, -13.666700 ]
     },
     "properties": {
-    "IP Address":"41.70.31.194",
-    "Name":"globe-as"
+    "ip_address":"41.70.31.194",
+    "name" :"globe-as"
     }
   },
   {
@@ -217,8 +217,8 @@
        "coordinates":  [  34.000000, -13.500000 ]
     },
     "properties": {
-    "IP Address":"41.87.6.25",
-    "Name":"MTL-AS"
+    "ip_address":"41.87.6.25",
+    "name" :"MTL-AS"
     }
   },
   {
@@ -228,8 +228,8 @@
        "coordinates":  [  34.000000, -13.500000 ]
     },
     "properties": {
-    "IP Address":"41.221.98.158",
-    "Name":"MTL-AS"
+    "ip_address":"41.221.98.158",
+    "name" :"MTL-AS"
     }
   },
   {
@@ -239,8 +239,8 @@
        "coordinates":  [  32.589199, -25.965300 ]
     },
     "properties": {
-    "IP Address":"196.3.96.21",
-    "Name":"EMUNET"
+    "ip_address":"196.3.96.21",
+    "name" :"EMUNET"
     }
   },
   {
@@ -250,8 +250,8 @@
        "coordinates":  [  32.589199, -25.965300 ]
     },
     "properties": {
-    "IP Address":"196.3.99.98",
-    "Name":"EMUNET"
+    "ip_address":"196.3.99.98",
+    "name" :"EMUNET"
     }
   },
   {
@@ -261,8 +261,8 @@
        "coordinates":  [  32.589199, -25.965300 ]
     },
     "properties": {
-    "IP Address":"41.220.160.149",
-    "Name":"TDM-AS"
+    "ip_address":"41.220.160.149",
+    "name" :"TDM-AS"
     }
   },
   {
@@ -272,8 +272,8 @@
        "coordinates":  [  32.589199, -25.965300 ]
     },
     "properties": {
-    "IP Address":"196.3.96.240",
-    "Name":"EMUNET"
+    "ip_address":"196.3.96.240",
+    "name" :"EMUNET"
     }
   },
   {
@@ -283,8 +283,8 @@
        "coordinates":  [  32.589199, -25.965300 ]
     },
     "properties": {
-    "IP Address":"196.3.96.21",
-    "Name":"EMUNET"
+    "ip_address":"196.3.96.21",
+    "name" :"EMUNET"
     }
   },
   {
@@ -294,8 +294,8 @@
        "coordinates":  [  17.000000, -22.000000 ]
     },
     "properties": {
-    "IP Address":"41.205.129.146",
-    "Name":"TELECOM-NAMIBIA"
+    "ip_address":"41.205.129.146",
+    "name" :"TELECOM-NAMIBIA"
     }
   },
   {
@@ -305,8 +305,8 @@
        "coordinates":  [  17.000000, -22.000000 ]
     },
     "properties": {
-    "IP Address":"196.12.10.105",
-    "Name":"Polytechnic-NA"
+    "ip_address":"196.12.10.105",
+    "name" :"Polytechnic-NA"
     }
   },
   {
@@ -316,8 +316,8 @@
        "coordinates":  [  30.000000, -2.000000 ]
     },
     "properties": {
-    "IP Address":"41.222.244.13",
-    "Name":"NUS-AS"
+    "ip_address":"41.222.244.13",
+    "name" :"NUS-AS"
     }
   },
   {
@@ -327,8 +327,8 @@
        "coordinates":  [  30.000000, -2.000000 ]
     },
     "properties": {
-    "IP Address":"197.243.16.110",
-    "Name":"RDB"
+    "ip_address":"197.243.16.110",
+    "name" :"RDB"
     }
   },
   {
@@ -338,8 +338,8 @@
        "coordinates":  [  30.000000, -2.000000 ]
     },
     "properties": {
-    "IP Address":"197.243.16.104",
-    "Name":"RDB"
+    "ip_address":"197.243.16.104",
+    "name" :"RDB"
     }
   },
   {
@@ -349,8 +349,8 @@
        "coordinates":  [  18.423201, -33.925800 ]
     },
     "properties": {
-    "IP Address":"137.158.158.44",
-    "Name":"UCT"
+    "ip_address":"137.158.158.44",
+    "name" :"UCT"
     }
   },
   {
@@ -360,8 +360,8 @@
        "coordinates":  [  18.400000, -33.983299 ]
     },
     "properties": {
-    "IP Address":"196.21.236.147",
-    "Name":"TENET-1"
+    "ip_address":"196.21.236.147",
+    "name" :"TENET-1"
     }
   },
   {
@@ -371,8 +371,8 @@
        "coordinates":  [  24.000000, -29.000000 ]
     },
     "properties": {
-    "IP Address":"146.182.34.110",
-    "Name":"UOFS"
+    "ip_address":"146.182.34.110",
+    "name" :"UOFS"
     }
   },
   {
@@ -382,8 +382,8 @@
        "coordinates":  [  31.029200, -29.857901 ]
     },
     "properties": {
-    "IP Address":"146.230.128.52",
-    "Name":"TENET-1"
+    "ip_address":"146.230.128.52",
+    "name" :"TENET-1"
     }
   },
   {
@@ -393,8 +393,8 @@
        "coordinates":  [  18.400000, -33.983299 ]
     },
     "properties": {
-    "IP Address":"196.21.218.26",
-    "Name":"TENET-1"
+    "ip_address":"196.21.218.26",
+    "name" :"TENET-1"
     }
   },
   {
@@ -404,8 +404,8 @@
        "coordinates":  [  27.100000, -26.716700 ]
     },
     "properties": {
-    "IP Address":"143.160.38.244",
-    "Name":"PUKNET"
+    "ip_address":"143.160.38.244",
+    "name" :"PUKNET"
     }
   },
   {
@@ -415,8 +415,8 @@
        "coordinates":  [  28.229401, -25.706900 ]
     },
     "properties": {
-    "IP Address":"137.215.97.20",
-    "Name":"TENET-1"
+    "ip_address":"137.215.97.20",
+    "name" :"TENET-1"
     }
   },
   {
@@ -426,8 +426,8 @@
        "coordinates":  [  27.964701, -30.795401 ]
     },
     "properties": {
-    "IP Address":"146.231.129.7",
-    "Name":"Rhodes-Univ"
+    "ip_address":"146.231.129.7",
+    "name" :"Rhodes-Univ"
     }
   },
   {
@@ -437,8 +437,8 @@
        "coordinates":  [  18.866800, -33.934601 ]
     },
     "properties": {
-    "IP Address":"146.232.21.146",
-    "Name":"TENET-1"
+    "ip_address":"146.232.21.146",
+    "name" :"TENET-1"
     }
   },
   {
@@ -448,8 +448,8 @@
        "coordinates":  [  18.628500, -33.900200 ]
     },
     "properties": {
-    "IP Address":"196.21.45.85",
-    "Name":"TENET-1"
+    "ip_address":"196.21.45.85",
+    "name" :"TENET-1"
     }
   },
   {
@@ -459,8 +459,8 @@
        "coordinates":  [  24.000000, -29.000000 ]
     },
     "properties": {
-    "IP Address":"146.141.9.215",
-    "Name":"TENET-1"
+    "ip_address":"146.141.9.215",
+    "name" :"TENET-1"
     }
   },
   {
@@ -470,8 +470,8 @@
        "coordinates":  [  35.000000, -6.000000 ]
     },
     "properties": {
-    "IP Address":"196.44.161.193",
-    "Name":"UNIV-DAR"
+    "ip_address":"196.44.161.193",
+    "name" :"UNIV-DAR"
     }
   },
   {
@@ -481,8 +481,8 @@
        "coordinates":  [  35.000000, -6.000000 ]
     },
     "properties": {
-    "IP Address":"41.73.194.141",
-    "Name":"Zantel-AS"
+    "ip_address":"41.73.194.141",
+    "name" :"Zantel-AS"
     }
   },
   {
@@ -492,8 +492,8 @@
        "coordinates":  [  35.000000, -6.000000 ]
     },
     "properties": {
-    "IP Address":"41.93.37.4",
-    "Name":"TERNET"
+    "ip_address":"41.93.37.4",
+    "name" :"TERNET"
     }
   },
   {
@@ -503,8 +503,8 @@
        "coordinates":  [  35.000000, -6.000000 ]
     },
     "properties": {
-    "IP Address":"41.204.150.67",
-    "Name":"Zantel-AS"
+    "ip_address":"41.204.150.67",
+    "name" :"Zantel-AS"
     }
   },
   {
@@ -514,8 +514,8 @@
        "coordinates":  [  35.000000, -6.000000 ]
     },
     "properties": {
-    "IP Address":"41.93.31.1",
-    "Name":"TERNET"
+    "ip_address":"41.93.31.1",
+    "name" :"TERNET"
     }
   },
   {
@@ -525,8 +525,8 @@
        "coordinates":  [  35.750000, -6.183300 ]
     },
     "properties": {
-    "IP Address":"41.78.64.5",
-    "Name":"Zantel-AS"
+    "ip_address":"41.78.64.5",
+    "name" :"Zantel-AS"
     }
   },
   {
@@ -536,8 +536,8 @@
        "coordinates":  [  32.565601, 0.315600 ]
     },
     "properties": {
-    "IP Address":"196.43.133.74",
-    "Name":"RENU"
+    "ip_address":"196.43.133.74",
+    "name" :"RENU"
     }
   },
   {
@@ -547,8 +547,8 @@
        "coordinates":  [  30.000000, -15.000000 ]
     },
     "properties": {
-    "IP Address":"41.63.1.2",
-    "Name":"ZAMREN"
+    "ip_address":"41.63.1.2",
+    "name" :"ZAMREN"
     }
   },
   {
@@ -558,8 +558,8 @@
        "coordinates":  [  30.000000, -15.000000 ]
     },
     "properties": {
-    "IP Address":"41.63.3.8",
-    "Name":"ZAMREN"
+    "ip_address":"41.63.3.8",
+    "name" :"ZAMREN"
     }
   },
   {
@@ -569,8 +569,8 @@
        "coordinates":  [  27.150000, -14.500000 ]
     },
     "properties": {
-    "IP Address":"41.63.16.6",
-    "Name":"ZAMREN"
+    "ip_address":"41.63.16.6",
+    "name" :"ZAMREN"
     }
   },
   {
@@ -580,8 +580,8 @@
        "coordinates":  [  30.000000, -15.000000 ]
     },
     "properties": {
-    "IP Address":"197.220.12.243",
-    "Name":"afczas"
+    "ip_address":"197.220.12.243",
+    "name" :"afczas"
     }
   },
   {
@@ -591,8 +591,8 @@
        "coordinates":  [  30.000000, -20.000000 ]
     },
     "properties": {
-    "IP Address":"196.220.96.209",
-    "Name":"NUoS-ASN"
+    "ip_address":"196.220.96.209",
+    "name" :"NUoS-ASN"
     }
   },
   {
@@ -602,8 +602,8 @@
        "coordinates":  [  31.044701, -17.817801 ]
     },
     "properties": {
-    "IP Address":"41.78.77.122",
-    "Name":"POWERTEL"
+    "ip_address":"41.78.77.122",
+    "name" :"POWERTEL"
     }
   },
   {
@@ -613,8 +613,8 @@
        "coordinates":  [  30.000000, -20.000000 ]
     },
     "properties": {
-    "IP Address":"41.78.78.26",
-    "Name":"POWERTEL"
+    "ip_address":"41.78.78.26",
+    "name" :"POWERTEL"
     }
   },
   {
@@ -624,8 +624,8 @@
        "coordinates":  [  30.000000, -20.000000 ]
     },
     "properties": {
-    "IP Address":"197.155.226.212",
-    "Name":"LIQUID-AS Liquid Telecommunications Ltd"
+    "ip_address":"197.155.226.212",
+    "name" :"LIQUID-AS Liquid Telecommunications Ltd"
     }
   }
 ]
