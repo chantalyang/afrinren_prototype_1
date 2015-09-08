@@ -45,7 +45,7 @@ function initMap() {
           content: ""
         });
 
-  //listen for click events
+  //Click events listener
   target_ips.addListener('click', function(event) {
  
         infoWindow.setContent(event.feature.getProperty("name"));
@@ -53,6 +53,10 @@ function initMap() {
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
       });
+
+  //Add target_ips to map
+  target_ips.setMap(map);
+
 
   /* Setup probe markers */
   probes.loadGeoJson("/data/probes/probes.json");
@@ -68,15 +72,24 @@ function initMap() {
   clickable: true
   });
 
+   //Click events listener
+  probes.addListener('click', function(event) {
+ 
+        infoWindow.setContent(event.feature.getProperty("name"));
+        var anchor = new google.maps.MVCObject();
+        anchor.set("position",event.latLng);
+        infoWindow.open(map,anchor);
+      });
+
+   //Add layer to map
+   probes.setMap(map);
 
   //For debugging
    target_ips.addListener('mouseover', function(event) {
     console.log(event.feature.getProperty("name"))
   });
 
-   //Add layer to map
-   target_ips.setMap(map);
-   probes.setMap(map);
+  
 
 
 }// -------- End initialise map function ------------- //
