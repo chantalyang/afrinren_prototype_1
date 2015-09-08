@@ -29,13 +29,26 @@ function initMap() {
   map.data.setStyle({
   icon: { 
     path: google.maps.SymbolPath.CIRCLE,
-    scale:5,
-    fillColor: '#f00',
+    scale:6,
+    fillColor: 'blue',
     fillOpacity: 1,
     strokeWeight:0,
   },
   clickable: true
   });
+
+  var  infoWindow = new google.maps.InfoWindow({
+          content: ""
+        });
+  
+  //listen for click events
+  map.data.addListener('click', function(event) {
+ 
+        infoWindow.setContent(event.feature.getProperty("name"));
+        var anchor = new google.maps.MVCObject();
+        anchor.set("position",event.latLng);
+        infoWindow.open(map,anchor);
+      });
 
   //For debugging
    map.data.addListener('mouseover', function(event) {
