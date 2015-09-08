@@ -21,17 +21,17 @@ function initMap() {
       '/overlays/links.png',
       imageBounds);
   cableOverlay.setOpacity(0.7)
-  cableOverlay.setMap(map);
+  //cableOverlay.setMap(map);
 
-  /*S etup target_ip Markers */ 
-
+  /*Setup target_ip Markers */ 
 
   map.data.loadGeoJson("/data/target_ips.json");
   map.data.setStyle({
   icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
-  title: "Hello",
   clickable: true
-  })
+  });
+
+  
 
   //For debugging
    map.data.addListener('mouseover', function(event) {

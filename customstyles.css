@@ -1,0 +1,20 @@
+ html, body {
+        height: 50px;
+        margin: 10px;
+        padding: 0;
+      }
+
+#map {
+        height: 600px;
+        width: 800px;
+      }
+      
+#info-box {
+        background-color: white;
+        border: 1px solid black;
+        bottom: 30px;
+        height: 20px;
+        padding: 10px;
+        position: absolute;
+        left: 30px;
+      }
