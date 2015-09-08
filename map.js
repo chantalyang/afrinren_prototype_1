@@ -1,5 +1,6 @@
 var map;
 
+
 // ------------- Initialise Map Function ------------ //
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -7,6 +8,9 @@ function initMap() {
     zoom: 2,
     streetViewControl: false,
   });
+
+  var target_ips = new google.maps.Data();
+  var probes = new google.maps.Data();
 
   /* Setup physical map overlay */
   // http://jsfiddle.net/4cWCW/575/
@@ -23,10 +27,10 @@ function initMap() {
   cableOverlay.setOpacity(0.7)
   //cableOverlay.setMap(map);
 
-  /* Setup target_ip Markers */ 
-  map.data.loadGeoJson("/data/target_ips.json");
+  // Setup target_ip Markers 
+  target_ips.loadGeoJson("/data/target_ips/target_ips.json");
 
-  map.data.setStyle({
+  target_ips.setStyle({
   icon: { 
     path: google.maps.SymbolPath.CIRCLE,
     scale:6,
@@ -40,9 +44,9 @@ function initMap() {
   var  infoWindow = new google.maps.InfoWindow({
           content: ""
         });
-  
+
   //listen for click events
-  map.data.addListener('click', function(event) {
+  target_ips.addListener('click', function(event) {
  
         infoWindow.setContent(event.feature.getProperty("name"));
         var anchor = new google.maps.MVCObject();
@@ -50,11 +54,27 @@ function initMap() {
         infoWindow.open(map,anchor);
       });
 
+  /* Setup probe markers */
+  //probes.loadGeoJson("/data/probes/probes.json");
+
+  /* map.data.setStyle({
+  icon: { 
+    path: google.maps.SymbolPath.CIRCLE,
+    scale:6,
+    fillColor: 'red',
+    fillOpacity: 1,
+    strokeWeight:0,
+  },
+  clickable: true
+  }); */
+
+
   //For debugging
    map.data.addListener('mouseover', function(event) {
     console.log(event.feature.getProperty("name"))
   });
 
+   target_ips.setMap(map);
 
 
 }// -------- End initialise map function ------------- //

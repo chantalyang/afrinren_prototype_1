@@ -1,0 +1,632 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  20.744699, -8.419200 ]
+    },
+    "properties": {
+    "ip_address":"41.223.156.170",
+    "name" :"ANGOLATELECOM"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  18.500000, -12.500000 ]
+    },
+    "properties": {
+    "ip_address":"41.221.254.22",
+    "name" :"EBONET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  25.911900, -24.646400 ]
+    },
+    "properties": {
+    "ip_address":"168.167.8.1",
+    "name" :"BTC-GATE1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  25.911900, -24.646400 ]
+    },
+    "properties": {
+    "ip_address":"168.167.220.2",
+    "name" :"BTC-GATE1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  25.000000, 0.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.242.128.134",
+    "name" :"VODACOM-CONGO"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 8.000000 ]
+    },
+    "properties": {
+    "ip_address":"213.55.95.15",
+    "name" :"EthioNet-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 8.000000 ]
+    },
+    "properties": {
+    "ip_address":"213.55.96.149",
+    "name" :"EthioNet-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 8.000000 ]
+    },
+    "properties": {
+    "ip_address":"213.55.96.150",
+    "name" :"EthioNet-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 8.000000 ]
+    },
+    "properties": {
+    "ip_address":"213.55.85.42",
+    "name" :"EthioNet-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  39.400002, 10.433300 ]
+    },
+    "properties": {
+    "ip_address":"213.55.101.26",
+    "name" :"EthioNet-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 8.000000 ]
+    },
+    "properties": {
+    "ip_address":"213.55.90.6",
+    "name" :"EthioNet-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 8.000000 ]
+    },
+    "properties": {
+    "ip_address":"213.55.98.158",
+    "name" :"EthioNet-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 1.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.204.161.16",
+    "name" :"KENET-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 1.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.89.96.80",
+    "name":"KENET-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  38.000000, 1.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.204.161.16",
+    "name" :"KENET-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  47.000000, -20.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.188.42.18",
+    "name" :"TGN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  47.000000, -20.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.188.61.248",
+    "name" :"TGN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  33.299999, -13.666700 ]
+    },
+    "properties": {
+    "ip_address":"41.70.16.34",
+    "name" :"globe-as"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  33.299999, -13.666700 ]
+    },
+    "properties": {
+    "ip_address":"41.70.31.194",
+    "name" :"globe-as"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  34.000000, -13.500000 ]
+    },
+    "properties": {
+    "ip_address":"41.87.6.25",
+    "name" :"MTL-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  34.000000, -13.500000 ]
+    },
+    "properties": {
+    "ip_address":"41.221.98.158",
+    "name" :"MTL-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  32.589199, -25.965300 ]
+    },
+    "properties": {
+    "ip_address":"196.3.96.21",
+    "name" :"EMUNET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  32.589199, -25.965300 ]
+    },
+    "properties": {
+    "ip_address":"196.3.99.98",
+    "name" :"EMUNET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  32.589199, -25.965300 ]
+    },
+    "properties": {
+    "ip_address":"41.220.160.149",
+    "name" :"TDM-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  32.589199, -25.965300 ]
+    },
+    "properties": {
+    "ip_address":"196.3.96.240",
+    "name" :"EMUNET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  32.589199, -25.965300 ]
+    },
+    "properties": {
+    "ip_address":"196.3.96.21",
+    "name" :"EMUNET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  17.000000, -22.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.205.129.146",
+    "name" :"TELECOM-NAMIBIA"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  17.000000, -22.000000 ]
+    },
+    "properties": {
+    "ip_address":"196.12.10.105",
+    "name" :"Polytechnic-NA"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -2.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.222.244.13",
+    "name" :"NUS-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -2.000000 ]
+    },
+    "properties": {
+    "ip_address":"197.243.16.110",
+    "name" :"RDB"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -2.000000 ]
+    },
+    "properties": {
+    "ip_address":"197.243.16.104",
+    "name" :"RDB"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  18.423201, -33.925800 ]
+    },
+    "properties": {
+    "ip_address":"137.158.158.44",
+    "name" :"UCT"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  18.400000, -33.983299 ]
+    },
+    "properties": {
+    "ip_address":"196.21.236.147",
+    "name" :"TENET-1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  24.000000, -29.000000 ]
+    },
+    "properties": {
+    "ip_address":"146.182.34.110",
+    "name" :"UOFS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  31.029200, -29.857901 ]
+    },
+    "properties": {
+    "ip_address":"146.230.128.52",
+    "name" :"TENET-1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  18.400000, -33.983299 ]
+    },
+    "properties": {
+    "ip_address":"196.21.218.26",
+    "name" :"TENET-1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  27.100000, -26.716700 ]
+    },
+    "properties": {
+    "ip_address":"143.160.38.244",
+    "name" :"PUKNET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  28.229401, -25.706900 ]
+    },
+    "properties": {
+    "ip_address":"137.215.97.20",
+    "name" :"TENET-1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  27.964701, -30.795401 ]
+    },
+    "properties": {
+    "ip_address":"146.231.129.7",
+    "name" :"Rhodes-Univ"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  18.866800, -33.934601 ]
+    },
+    "properties": {
+    "ip_address":"146.232.21.146",
+    "name" :"TENET-1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  18.628500, -33.900200 ]
+    },
+    "properties": {
+    "ip_address":"196.21.45.85",
+    "name" :"TENET-1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  24.000000, -29.000000 ]
+    },
+    "properties": {
+    "ip_address":"146.141.9.215",
+    "name" :"TENET-1"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  35.000000, -6.000000 ]
+    },
+    "properties": {
+    "ip_address":"196.44.161.193",
+    "name" :"UNIV-DAR"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  35.000000, -6.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.73.194.141",
+    "name" :"Zantel-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  35.000000, -6.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.93.37.4",
+    "name" :"TERNET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  35.000000, -6.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.204.150.67",
+    "name" :"Zantel-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  35.000000, -6.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.93.31.1",
+    "name" :"TERNET"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  35.750000, -6.183300 ]
+    },
+    "properties": {
+    "ip_address":"41.78.64.5",
+    "name" :"Zantel-AS"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  32.565601, 0.315600 ]
+    },
+    "properties": {
+    "ip_address":"196.43.133.74",
+    "name" :"RENU"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -15.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.63.1.2",
+    "name" :"ZAMREN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -15.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.63.3.8",
+    "name" :"ZAMREN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  27.150000, -14.500000 ]
+    },
+    "properties": {
+    "ip_address":"41.63.16.6",
+    "name" :"ZAMREN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -15.000000 ]
+    },
+    "properties": {
+    "ip_address":"197.220.12.243",
+    "name" :"afczas"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -20.000000 ]
+    },
+    "properties": {
+    "ip_address":"196.220.96.209",
+    "name" :"NUoS-ASN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  31.044701, -17.817801 ]
+    },
+    "properties": {
+    "ip_address":"41.78.77.122",
+    "name" :"POWERTEL"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -20.000000 ]
+    },
+    "properties": {
+    "ip_address":"41.78.78.26",
+    "name" :"POWERTEL"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  30.000000, -20.000000 ]
+    },
+    "properties": {
+    "ip_address":"197.155.226.212",
+    "name" :"LIQUID-AS Liquid Telecommunications Ltd"
+    }
+  }
+]
+}
