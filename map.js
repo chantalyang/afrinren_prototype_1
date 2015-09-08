@@ -23,15 +23,19 @@ function initMap() {
   cableOverlay.setOpacity(0.7)
   //cableOverlay.setMap(map);
 
-  /*Setup target_ip Markers */ 
-
+  /* Setup target_ip Markers */ 
   map.data.loadGeoJson("/data/target_ips.json");
+
   map.data.setStyle({
-  icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
+  icon: { 
+    path: google.maps.SymbolPath.CIRCLE,
+    scale:5,
+    fillColor: '#f00',
+    fillOpacity: 1,
+    strokeWeight:0,
+  },
   clickable: true
   });
-
-  
 
   //For debugging
    map.data.addListener('mouseover', function(event) {
