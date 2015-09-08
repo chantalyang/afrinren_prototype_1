@@ -55,9 +55,9 @@ function initMap() {
       });
 
   /* Setup probe markers */
-  //probes.loadGeoJson("/data/probes/probes.json");
+  probes.loadGeoJson("/data/probes/probes.json");
 
-  /* map.data.setStyle({
+  probes.setStyle({
   icon: { 
     path: google.maps.SymbolPath.CIRCLE,
     scale:6,
@@ -66,15 +66,17 @@ function initMap() {
     strokeWeight:0,
   },
   clickable: true
-  }); */
+  });
 
 
   //For debugging
-   map.data.addListener('mouseover', function(event) {
+   target_ips.addListener('mouseover', function(event) {
     console.log(event.feature.getProperty("name"))
   });
 
+   //Add layer to map
    target_ips.setMap(map);
+   probes.setMap(map);
 
 
 }// -------- End initialise map function ------------- //
