@@ -9,7 +9,7 @@ function initMap() {
     streetViewControl: false,
   });
 
-  /* For physical map overlay */
+  /*Add physical map overlay */
   // http://jsfiddle.net/4cWCW/575/
 
   //Setbounds of overlay
@@ -24,11 +24,7 @@ function initMap() {
   cableOverlay.setOpacity(0.7)
   cableOverlay.setMap(map);
 
-  /* Markers */ 
-  var marker = new google.maps.Marker({
-    position: {lat: 0.070959, lng: 23.923482},
-    title: "Marker"
-  });
+  /*Add target_ip markers to map */ 
 
   var circ = {
     path: 'M 125,5 155,90 245,90 175,145 200,230 125,180 50,230 75,145 5,90 95,90 z',
@@ -39,11 +35,16 @@ function initMap() {
     strokeWeight: 14
   };
 
-  //marker.setMap(map);
   map.data.loadGeoJson("/data/target_ips.json");
   map.data.setStyle({
   icon: "http://maps.google.com/mapfiles/ms/icons/orange-dot.png",
+  clickable: true
   })
+
+//For debugging
+   map.data.addListener('mouseover', function(event) {
+    console.log(event.feature.getProperty("name"))
+  });
 
 
 
