@@ -18,7 +18,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ 32.570989,0.329179 ]
+       "coordinates":  [ 33.570989,0.329179 ]
     },
     "properties": {
     "probe_id":14900,
@@ -44,7 +44,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ 36.868172,-1.235795 ]
+       "coordinates":  [ 37.868172,-1.235795 ]
     },
     "properties": {
     "probe_id":13114,
@@ -70,7 +70,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ 47.528323,-18.942708 ]
+       "coordinates":  [ 48.528323,-18.942708 ]
     },
     "properties": {
     "probe_id":14712,
@@ -109,7 +109,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ 26.516308,-33.313596 ]
+       "coordinates":  [ 27.516308,-33.313596 ]
     },
     "properties": {
     "probe_id":18169,
