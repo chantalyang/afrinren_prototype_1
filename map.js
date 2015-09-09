@@ -11,6 +11,14 @@ function initMap() {
 
   var target_ips = new google.maps.Data();
   var probes = new google.maps.Data();
+
+   var lineSymbol = {
+    path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+    scale: 5,
+    strokeColor: 'orange'
+  };
+  
+
   
   /* Setup physical map overlay */
   // http://jsfiddle.net/4cWCW/575/
@@ -68,16 +76,22 @@ function initMap() {
    //Draw lines 
    var traceroute_path = new google.maps.Polyline({
     path: [{lat: target_ip_lat, lng:target_ip_long}, {lat:36.816352,lng:-1.280702 }],
+    icons: [{
+      icon: lineSymbol,
+      offset: '100%'
+    }],
     geodesic: true,
-    strokeColor: '#FF0000',
+    strokeColor: 'black',
     strokeOpacity: 1.0,
     strokeWeight: 2
   });
 
     addLine(traceroute_path);
+    animateCircle(traceroute_path);
+
       });//End click event
 
-      
+   
 
 
   /* Setup probe markers */
@@ -133,4 +147,15 @@ function addLine(polyline){
 
 function removeLine(polyline){
   polyline.setMap(null)
+}
+
+function animateCircle(line) {
+    var count = 0;
+    window.setInterval(function() {
+      count = (count + 1) % 200;
+
+      var icons = line.get('icons');
+      icons[0].offset = (count / 2) + '%';
+      line.set('icons', icons);
+  }, 20);
 }
