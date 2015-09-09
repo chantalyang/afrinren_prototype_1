@@ -14,8 +14,11 @@ function initMap() {
 
    var lineSymbol = {
     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-    scale: 5,
-    strokeColor: 'orange'
+    fillColor: 'orange',
+    fillOpacity:1,
+    scale: 4,
+    strokeWeight: 1,
+    strokeColor: 'black'
   };
   
 
