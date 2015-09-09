@@ -86,11 +86,11 @@ function initMap() {
     geodesic: true,
     strokeColor: 'black',
     strokeOpacity: 1.0,
-    strokeWeight: 2
+    strokeWeight: 3
   });
 
     addLine(traceroute_path);
-    animateCircle(traceroute_path);
+    animateArrow(traceroute_path);
 
       });//End click event
 
@@ -100,16 +100,18 @@ function initMap() {
   /* Setup probe markers */
   probes.loadGeoJson("/data/probes/probes.json");
 
-  probes.setStyle({
-  icon: { 
-    path: google.maps.SymbolPath.CIRCLE,
-    scale:6,
-    fillColor: 'red',
-    fillOpacity: 1,
-    strokeWeight:0,
-  },
-  clickable: true
-  });
+  probes.setStyle(styleProbeSymbol);
+
+  // probes.setStyle({  
+  // icon: { 
+  //   path: google.maps.SymbolPath.CIRCLE,
+  //   scale:6,
+  //   fillColor: 'red',
+  //   fillOpacity: 1,
+  //   strokeWeight:0,
+  // },
+  // clickable: true
+  // });
 
    //Mouseover events listener
   probes.addListener('mouseover', function(event) {
@@ -132,18 +134,19 @@ function initMap() {
   //   console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
   // });
 
-  //  probes.addListener('mouseover', function(event) {
-  //   var probe_lat = event.feature.getGeometry().get().G
-  //   var probe_long = event.feature.getGeometry().get().K
-  //   console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
+   probes.addListener('mouseover', function(event) {
+    var probe_lat = event.feature.getGeometry().get().G
+    var probe_long = event.feature.getGeometry().get().K
+    console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
 
-  // });
+  });
 
   
 
 
 }// -------- End initialise map function ------------- //
 
+//--------------- Polylines methods ---------------------//
 function addLine(polyline){
   polyline.setMap(map)
 }
@@ -152,13 +155,52 @@ function removeLine(polyline){
   polyline.setMap(null)
 }
 
-function animateCircle(line) {
+//// Use the DOM setInterval() function to change the offset of the symbol at fixed intervals.
+function animateArrow(line) {
     var count = 0;
     window.setInterval(function() {
-      count = (count + 1) % 200;
+      count = (count + 1) % 200; //increase % for time
 
       var icons = line.get('icons');
       icons[0].offset = (count / 2) + '%';
       line.set('icons', icons);
   }, 20);
+
 }
+
+//--------------- Styling functions ------------------//
+function styleProbeSymbol(feature){
+    var icon_shape;
+    var latitude = feature.getGeometry().get().G;
+    var longitude = feature.getGeometry().get().K;
+    
+    var coordinates = new google.maps.LatLng(latitude + 500,longitude + 500);
+
+    if (feature.getProperty("type") == "nren"){
+        colour = "red";
+    }
+
+    else if (feature.getProperty("type") == "university"){
+        colour = "orange";
+      }
+
+    return {
+      icon: {
+      path: "M16,3.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.143,7.5,18.121,7.5,18.121S23.5,15.143,23.5,11C23.5,6.858,20.143,3.5,16,3.5z M16,14.584c-1.979,0-3.584-1.604-3.584-3.584S14.021,7.416,16,7.416S19.584,9.021,19.584,11S17.979,14.584,16,14.584z",
+     // path: google.maps.SymbolPath.CIRCLE,
+      scale: 1,
+      fillColor: colour,
+      fillOpacity:1,
+      strokeWeight:0.1,
+      strokeColor: "black",
+      anchor: new google.maps.Point(15,25)
+      },
+      clickable: true
+    
+    };
+
+
+}
+
+
+
