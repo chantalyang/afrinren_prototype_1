@@ -7,14 +7,13 @@
 #map {
         height: 600px;
         width: 800px;
+        float: left;
       }
+#legend{
+    float:right;
+    margin-right: 200px;
+    height:600px;
+    width: 250px; 
+    text-align: center;
+}
       
-#info-box {
-        background-color: white;
-        border: 1px solid black;
-        bottom: 30px;
-        height: 20px;
-        padding: 10px;
-        position: absolute;
-        left: 30px;
-      }

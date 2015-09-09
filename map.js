@@ -5,7 +5,7 @@ var map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 0.070959, lng: 23.923482}, //0.070959, 23.923482
-    zoom: 2,
+    zoom: 3,
     streetViewControl: false,
   });
 
@@ -21,13 +21,13 @@ function initMap() {
       new google.maps.LatLng(55.107204794640154, 87.37057231783751));
  
  //Overlay settings
-  cableOverlay = new google.maps.GroundOverlay(
+  var cableOverlay = new google.maps.GroundOverlay(
       '/overlays/links.png',
       imageBounds);
   cableOverlay.setOpacity(0.7)
   //cableOverlay.setMap(map);
 
-  // Setup target_ip Markers 
+  /* Setup target_ip Markers */
   target_ips.loadGeoJson("/data/target_ips/target_ips.json");
 
   target_ips.setStyle({
@@ -42,13 +42,13 @@ function initMap() {
   });
 
   var  infoWindow = new google.maps.InfoWindow({
-          content: ""
+          content: "",
         });
 
-  //Click events listener
-  target_ips.addListener('click', function(event) {
+  //Mouseover events listener
+  target_ips.addListener('mouseover', function(event) {
  
-        infoWindow.setContent(event.feature.getProperty("name"));
+        infoWindow.setContent(event.feature.getProperty("name") + "<br> <b>IP Address: </b>" + event.feature.getProperty("ip_address") );
         var anchor = new google.maps.MVCObject();
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
@@ -56,6 +56,21 @@ function initMap() {
 
   //Add target_ips to map
   target_ips.setMap(map);
+
+  //Onclick events listener
+  target_ips.addListener('click', function(event) {
+  // var marker_coordinates = event.feature.getGeometry.get().G
+    //console.log(marker_coordinates)
+   /* var traceroute_path = new google.maps.Polyline({
+    path: [marker_coordinates, {lat:36.816352,lng:-1.280702 }],
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  }); */
+      });//End click event
+
+      
 
 
   /* Setup probe markers */
@@ -72,10 +87,12 @@ function initMap() {
   clickable: true
   });
 
-   //Click events listener
-  probes.addListener('click', function(event) {
+   //Mouseover events listener
+  probes.addListener('mouseover', function(event) {
  
-        infoWindow.setContent(event.feature.getProperty("name"));
+        infoWindow.setContent(event.feature.getProperty("name") + 
+                              "<br>" + "<b>Probe ID: </b> " + event.feature.getProperty("probe_id") +
+                              "<br>" + " <b>ASN:</b>" + event.feature.getProperty("asn"));
         var anchor = new google.maps.MVCObject();
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
@@ -86,7 +103,17 @@ function initMap() {
 
   //For debugging
    target_ips.addListener('mouseover', function(event) {
-    console.log(event.feature.getProperty("name"))
+    var target_ip_lat = event.feature.getGeometry().get().G
+    var target_ip_long = event.feature.getGeometry().get().K
+    console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+
+  });
+
+   probes.addListener('mouseover', function(event) {
+    var probe_lat = event.feature.getGeometry().get().G
+    var probe_long = event.feature.getGeometry().get().K
+    console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
+
   });
 
   
