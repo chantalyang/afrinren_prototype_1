@@ -11,7 +11,7 @@ function initMap() {
 
   var target_ips = new google.maps.Data();
   var probes = new google.maps.Data();
-
+  
   /* Setup physical map overlay */
   // http://jsfiddle.net/4cWCW/575/
 
@@ -58,16 +58,23 @@ function initMap() {
   target_ips.setMap(map);
 
   //Onclick events listener
-  target_ips.addListener('click', function(event) {
-  // var marker_coordinates = event.feature.getGeometry.get().G
-    //console.log(marker_coordinates)
-   /* var traceroute_path = new google.maps.Polyline({
-    path: [marker_coordinates, {lat:36.816352,lng:-1.280702 }],
+  target_ips.addListener('click', function(event) { 
+   // removeLine(traceroute_path); //Clear polyline everytime item is clicked
+
+    var target_ip_lat = event.feature.getGeometry().get().G
+    var target_ip_long = event.feature.getGeometry().get().K
+    //console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+
+   //Draw lines 
+   var traceroute_path = new google.maps.Polyline({
+    path: [{lat: target_ip_lat, lng:target_ip_long}, {lat:36.816352,lng:-1.280702 }],
     geodesic: true,
     strokeColor: '#FF0000',
     strokeOpacity: 1.0,
     strokeWeight: 2
-  }); */
+  });
+
+    addLine(traceroute_path);
       });//End click event
 
       
@@ -101,22 +108,29 @@ function initMap() {
    //Add layer to map
    probes.setMap(map);
 
-  //For debugging
-   target_ips.addListener('mouseover', function(event) {
-    var target_ip_lat = event.feature.getGeometry().get().G
-    var target_ip_long = event.feature.getGeometry().get().K
-    console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+  // For debugging
+  //  target_ips.addListener('mouseover', function(event) {
+  //   var target_ip_lat = event.feature.getGeometry().get().G
+  //   var target_ip_long = event.feature.getGeometry().get().K
+  //   console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+  // });
 
-  });
+  //  probes.addListener('mouseover', function(event) {
+  //   var probe_lat = event.feature.getGeometry().get().G
+  //   var probe_long = event.feature.getGeometry().get().K
+  //   console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
 
-   probes.addListener('mouseover', function(event) {
-    var probe_lat = event.feature.getGeometry().get().G
-    var probe_long = event.feature.getGeometry().get().K
-    console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
-
-  });
+  // });
 
   
 
 
 }// -------- End initialise map function ------------- //
+
+function addLine(polyline){
+  polyline.setMap(map)
+}
+
+function removeLine(polyline){
+  polyline.setMap(null)
+}
