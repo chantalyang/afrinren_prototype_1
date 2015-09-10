@@ -9,13 +9,22 @@ function initMap() {
   var target_ips = new google.maps.Data();
   var probes = new google.maps.Data();
 
-   var lineSymbol = {
+  var line_symbol = {
     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
     fillColor: 'orange',
     fillOpacity:1,
     scale: 4,
     strokeWeight: 1,
     strokeColor: 'black'
+  };
+
+  //Deafult target ip symbol styling
+  var target_ip_symbol = {
+    path: google.maps.SymbolPath.CIRCLE,
+    scale:6,
+    fillColor: 'blue',
+    fillOpacity: 1,
+    strokeWeight:1,
   };
 
   /* Map initialisation */
@@ -30,80 +39,88 @@ function initMap() {
 
   //Set bounds of overlay
   var imageBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(-41.97938439964395, -38.127905909394485),
-      new google.maps.LatLng(55.107204794640154, 87.37057231783751));
- 
+    new google.maps.LatLng(-41.97938439964395, -38.127905909394485),
+    new google.maps.LatLng(55.107204794640154, 87.37057231783751));
+  
  //Overlay settings
-  var cableOverlay = new google.maps.GroundOverlay(
-      '/overlays/links.png',
-      imageBounds);
-  cableOverlay.setOpacity(0.7)
+ var cableOverlay = new google.maps.GroundOverlay(
+  '/overlays/links.png',
+  imageBounds);
+
+ cableOverlay.setOpacity(0.7)
   //cableOverlay.setMap(map);
 
   /* Setup target_ip Markers */
   target_ips.loadGeoJson("/data/target_ips/target_ips.json");
 
   target_ips.setStyle({
-  icon: { 
-    path: google.maps.SymbolPath.CIRCLE,
-    scale:6,
-    fillColor: 'blue',
-    fillOpacity: 1,
-    strokeWeight:1,
-  },
-  clickable: true
+    icon: target_ip_symbol,
+    clickable: true
   });
 
   var  infoWindow = new google.maps.InfoWindow({
-          content: "",
-        });
+    content: "",
+  });
 
   //Mouseover events listener
   target_ips.addListener('mouseover', function(event) {
- 
+    
+        //Show infowindows
         infoWindow.setContent(event.feature.getProperty("name") + "<br> <b>IP Address: </b>" + event.feature.getProperty("ip_address") );
         var anchor = new google.maps.MVCObject();
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
-        target_ips.overrideStyle(event.feature, {strokeWeight: 10, strokeColor: "white"});
 
+        //Style 
+        target_ips.overrideStyle(event.feature,
+          {icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: "blue",
+            fillOpacity: 0.5,
+            scale: 6,
+            strokeColor: "white",
+            strokeWeight:2,
+        }
+      }
+      );         
       });
 
-  //Add target_ips to map
-  target_ips.setMap(map);
+    
 
-  //Onclick events listener
-  target_ips.addListener('click', function(event) { 
-   // removeLine(traceroute_path); //Clear polyline everytime item is clicked
+    //Onclick events listener
+    target_ips.addListener('click', function(event) { 
 
-    var target_ip_lat = event.feature.getGeometry().get().G
-    var target_ip_long = event.feature.getGeometry().get().K
-    //console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+        // removeLine(traceroute_path); //Clear polyline everytime item is clicked
 
-   //Draw lines 
-   var traceroute_path = new google.maps.Polyline({
-    path: [{lat: target_ip_lat, lng:target_ip_long}, {lat:36.816352,lng:-1.280702 }],
-    icons: [{
-      icon: lineSymbol,
-      offset: '100%'
-    }],
-    geodesic: true,
-    strokeColor: 'black',
-    strokeOpacity: 1.0,
-    strokeWeight: 3
-  });
+        var target_ip_lat = event.feature.getGeometry().get().G
+        var target_ip_long = event.feature.getGeometry().get().K
+        //console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
 
-    addLine(traceroute_path);
-    animateArrow(traceroute_path);
+       //Draw lines 
+       var traceroute_path = new google.maps.Polyline({
+        path: [{lat: target_ip_lat, lng:target_ip_long}, {lat:36.816352,lng:-1.280702 }],
+        icons: [{
+          icon: line_symbol,
+          offset: '100%'
+        }],
+        geodesic: true,
+        strokeColor: 'black',
+        strokeOpacity: 1.0,
+        strokeWeight: 3
+      });
+
+       addLine(traceroute_path);
+       animateArrow(traceroute_path);
 
       });//End click event
 
-   
+      //Add target_ips to map
+     target_ips.setMap(map);
+    
 
-
-  /* Setup probe markers */
-  probes.loadGeoJson("/data/probes/probes.json");
-  probes.setStyle(styleProbeSymbol);
+    /* Setup probe markers */
+    probes.loadGeoJson("/data/probes/probes.json");
+    probes.setStyle(styleProbeSymbol);
 
   // probes.setStyle({  
   // icon: { 
@@ -117,33 +134,35 @@ function initMap() {
   // });
 
    //Mouseover events listener
-  probes.addListener('mouseover', function(event) {
+   probes.addListener('mouseover', function(event) {
+
+        //Display infowindow
         infoWindow.setContent(event.feature.getProperty("name") + 
-                              "<br>" + "<b>Probe ID: </b> " + event.feature.getProperty("probe_id") +
-                              "<br>" + " <b>ASN:</b>" + event.feature.getProperty("asn"));
+          "<br>" + "<b>Probe ID: </b> " + event.feature.getProperty("probe_id") +
+          "<br>" + " <b>ASN:</b>" + event.feature.getProperty("asn"));
         var anchor = new google.maps.MVCObject();
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
 
-      });
-
-  probes.addListener("mouseover", function(event) {
-      probes.revertStyle();
-      probes.overrideStyle(event.feature,
-      {icon: {
-        path: probe_svg_path,
-        fillColor: "red",
-        fillOpacity:1,
-        strokeColor: "white", 
+        //Set styles for markers
+        probes.revertStyle();
+        probes.overrideStyle(event.feature,
+          {icon: {
+            path: probe_svg_path,
+            fillColor: "red",
+            fillOpacity: 0.5,
+        //strokeColor: "white", 
         strokeWeight:2,
-        anchor: new google.maps.Point(15,10)
- }
-    }
-  );
-      });
+        anchor: new google.maps.Point(15,10)}
+      }
+      ); 
 
-  probes.addListener('mouseout', function(event) {
-    probes.revertStyle(styleProbeSymbol, probe_svg_path);
+
+      });//End event listener
+
+   
+   probes.addListener('mouseout', function(event) {
+    probes.revertStyle(styleProbeSymbol);
   });
 
   //Add layer to map
@@ -163,7 +182,7 @@ function initMap() {
 
   // });
 
-  
+
 
 
 }// -------- End initialise map function ------------- //
@@ -179,33 +198,33 @@ function removeLine(polyline){
 
 //// Use the DOM setInterval() function to change the offset of the symbol at fixed intervals.
 function animateArrow(line) {
-    var count = 0;
-    window.setInterval(function() {
+  var count = 0;
+  window.setInterval(function() {
       count = (count + 1) % 200; //increase % for time
 
       var icons = line.get('icons');
       icons[0].offset = (count / 2) + '%';
       line.set('icons', icons);
-  }, 20);
+    }, 20);
 
 }
 
 //--------------- Styling functions ------------------//
 function styleProbeSymbol(feature){
-    var latitude = feature.getGeometry().get().G;
-    var longitude = feature.getGeometry().get().K;
-    var coordinates = new google.maps.LatLng(latitude + 500,longitude + 500);
+  var latitude = feature.getGeometry().get().G;
+  var longitude = feature.getGeometry().get().K;
+  var coordinates = new google.maps.LatLng(latitude + 500,longitude + 500);
 
-    if (feature.getProperty("type") == "nren"){
-        colour = "red";
-    }
+  if (feature.getProperty("type") == "nren"){
+    colour = "red";
+  }
 
-    else if (feature.getProperty("type") == "university"){
-        colour = "orange";
-      }
+  else if (feature.getProperty("type") == "university"){
+    colour = "orange";
+  }
 
-    return {
-      icon: {
+  return {
+    icon: {
       path: probe_svg_path,
       scale: 1,
       fillColor: colour,
@@ -213,14 +232,14 @@ function styleProbeSymbol(feature){
       strokeWeight:1,
       strokeColor: "black",
       anchor: new google.maps.Point(15,10)
-      },
+    },
       //icon: symbol,
       
-    
+      
     };
 
 
-}
+  }
 
 
 
