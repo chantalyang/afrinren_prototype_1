@@ -1,13 +1,10 @@
 var map;
-
+var probe_svg_path = "M16,3.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.143,7.5,18.121,7.5,18.121S23.5,15.143,23.5,11C23.5,6.858,20.143,3.5,16,3.5z M16,14.584c-1.979,0-3.584-1.604-3.584-3.584S14.021,7.416,16,7.416S19.584,9.021,19.584,11S17.979,14.584,16,14.584z";
 
 // ------------- Initialise Map Function ------------ //
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 0.070959, lng: 23.923482}, //0.070959, 23.923482
-    zoom: 3,
-    streetViewControl: false,
-  });
+
+  /* Setup Variables */
 
   var target_ips = new google.maps.Data();
   var probes = new google.maps.Data();
@@ -20,9 +17,14 @@ function initMap() {
     strokeWeight: 1,
     strokeColor: 'black'
   };
-  
 
-  
+  /* Map initialisation */
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 0.070959, lng: 23.923482}, //0.070959, 23.923482
+    zoom: 3,
+    streetViewControl: false,
+  });
+
   /* Setup physical map overlay */
   // http://jsfiddle.net/4cWCW/575/
 
@@ -101,7 +103,6 @@ function initMap() {
 
   /* Setup probe markers */
   probes.loadGeoJson("/data/probes/probes.json");
-
   probes.setStyle(styleProbeSymbol);
 
   // probes.setStyle({  
@@ -114,8 +115,6 @@ function initMap() {
   // },
   // clickable: true
   // });
-
- 
 
    //Mouseover events listener
   probes.addListener('mouseover', function(event) {
@@ -132,7 +131,7 @@ function initMap() {
       probes.revertStyle();
       probes.overrideStyle(event.feature,
       {icon: {
-        path: "M16,3.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.143,7.5,18.121,7.5,18.121S23.5,15.143,23.5,11C23.5,6.858,20.143,3.5,16,3.5z M16,14.584c-1.979,0-3.584-1.604-3.584-3.584S14.021,7.416,16,7.416S19.584,9.021,19.584,11S17.979,14.584,16,14.584z",
+        path: probe_svg_path,
         fillColor: "red",
         fillOpacity:1,
         strokeColor: "white", 
@@ -144,7 +143,7 @@ function initMap() {
       });
 
   probes.addListener('mouseout', function(event) {
-    probes.revertStyle(styleProbeSymbol);
+    probes.revertStyle(styleProbeSymbol, probe_svg_path);
   });
 
   //Add layer to map
@@ -157,12 +156,12 @@ function initMap() {
   //   console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
   // });
 
-   probes.addListener('mouseover', function(event) {
-    var probe_lat = event.feature.getGeometry().get().G
-    var probe_long = event.feature.getGeometry().get().K
-    console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
+  //  probes.addListener('mouseover', function(event) {
+  //   var probe_lat = event.feature.getGeometry().get().G
+  //   var probe_long = event.feature.getGeometry().get().K
+  //   console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
 
-  });
+  // });
 
   
 
@@ -193,10 +192,8 @@ function animateArrow(line) {
 
 //--------------- Styling functions ------------------//
 function styleProbeSymbol(feature){
-    var icon_shape;
     var latitude = feature.getGeometry().get().G;
     var longitude = feature.getGeometry().get().K;
-    
     var coordinates = new google.maps.LatLng(latitude + 500,longitude + 500);
 
     if (feature.getProperty("type") == "nren"){
@@ -209,8 +206,7 @@ function styleProbeSymbol(feature){
 
     return {
       icon: {
-      path: "M16,3.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.143,7.5,18.121,7.5,18.121S23.5,15.143,23.5,11C23.5,6.858,20.143,3.5,16,3.5z M16,14.584c-1.979,0-3.584-1.604-3.584-3.584S14.021,7.416,16,7.416S19.584,9.021,19.584,11S17.979,14.584,16,14.584z",
-     // path: google.maps.SymbolPath.CIRCLE,
+      path: probe_svg_path,
       scale: 1,
       fillColor: colour,
       fillOpacity:1,
@@ -218,7 +214,8 @@ function styleProbeSymbol(feature){
       strokeColor: "black",
       anchor: new google.maps.Point(15,10)
       },
-      clickable: true
+      //icon: symbol,
+      
     
     };
 
