@@ -47,7 +47,7 @@ function initMap() {
     scale:6,
     fillColor: 'blue',
     fillOpacity: 1,
-    strokeWeight:0,
+    strokeWeight:1,
   },
   clickable: true
   });
@@ -63,6 +63,8 @@ function initMap() {
         var anchor = new google.maps.MVCObject();
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
+        target_ips.overrideStyle(event.feature, {strokeWeight: 10, strokeColor: "white"});
+
       });
 
   //Add target_ips to map
@@ -113,19 +115,40 @@ function initMap() {
   // clickable: true
   // });
 
+ 
+
    //Mouseover events listener
   probes.addListener('mouseover', function(event) {
- 
         infoWindow.setContent(event.feature.getProperty("name") + 
                               "<br>" + "<b>Probe ID: </b> " + event.feature.getProperty("probe_id") +
                               "<br>" + " <b>ASN:</b>" + event.feature.getProperty("asn"));
         var anchor = new google.maps.MVCObject();
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
+
       });
 
-   //Add layer to map
-   probes.setMap(map);
+  probes.addListener("mouseover", function(event) {
+      probes.revertStyle();
+      probes.overrideStyle(event.feature,
+      {icon: {
+        path: "M16,3.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.143,7.5,18.121,7.5,18.121S23.5,15.143,23.5,11C23.5,6.858,20.143,3.5,16,3.5z M16,14.584c-1.979,0-3.584-1.604-3.584-3.584S14.021,7.416,16,7.416S19.584,9.021,19.584,11S17.979,14.584,16,14.584z",
+        fillColor: "red",
+        fillOpacity:1,
+        strokeColor: "white", 
+        strokeWeight:2,
+        anchor: new google.maps.Point(15,10)
+ }
+    }
+  );
+      });
+
+  probes.addListener('mouseout', function(event) {
+    probes.revertStyle(styleProbeSymbol);
+  });
+
+  //Add layer to map
+  probes.setMap(map);
 
   // For debugging
   //  target_ips.addListener('mouseover', function(event) {
@@ -191,9 +214,9 @@ function styleProbeSymbol(feature){
       scale: 1,
       fillColor: colour,
       fillOpacity:1,
-      strokeWeight:0.1,
+      strokeWeight:1,
       strokeColor: "black",
-      anchor: new google.maps.Point(15,25)
+      anchor: new google.maps.Point(15,10)
       },
       clickable: true
     
