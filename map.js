@@ -18,7 +18,6 @@ function initMap() {
     strokeColor: 'black'
   };
 
-  //Deafult target ip symbol styling
   var target_ip_symbol = {
     path: google.maps.SymbolPath.CIRCLE,
     scale:6,
@@ -26,6 +25,8 @@ function initMap() {
     fillOpacity: 1,
     strokeWeight:1,
   };
+
+  var selected_ip = null;
 
   /* Map initialisation */
   map = new google.maps.Map(document.getElementById('map'), {
@@ -63,7 +64,7 @@ function initMap() {
   });
 
   //Mouseover events listener
-  target_ips.addListener('mouseover', function(event) {
+  var target_ip_mouseover_listener = target_ips.addListener('mouseover', function(event) {
     
         //Show infowindows
         infoWindow.setContent(event.feature.getProperty("name") + "<br> <b>IP Address: </b>" + event.feature.getProperty("ip_address") );
@@ -71,7 +72,11 @@ function initMap() {
         anchor.set("position",event.latLng);
         infoWindow.open(map,anchor);
 
-        //Style 
+        //Style
+        if (selected_ip != null){ 
+          //If an IP is selected, don't reset the style while mousing over
+        } 
+        else{
         target_ips.revertStyle();
         target_ips.overrideStyle(event.feature,
           {icon: {
@@ -83,19 +88,30 @@ function initMap() {
             strokeWeight:2,
         }
       }
-      );         
+      ); 
+      } 
+
       });
 
-   probes.addListener('mouseout', function(event) {
-    target_ips.revertStyle(
-      {icon: target_ip_symbol}
-      );
-  });
-
-    
 
     //On click events listener
-    target_ips.addListener('click', function(event) { 
+    var target_ips_click_listener = target_ips.addListener('click', function(event) { 
+        
+        selected_ip = event.feature;
+        //console.log(typeof selected_ip)
+
+        //Style icon
+        target_ips.revertStyle();//Reset the style of all target_ip clicks
+        target_ips.overrideStyle(event.feature,
+         {icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: "#0ece4b",
+            fillOpacity: 1,
+            scale: 9,
+            //strokeColor: "white",
+            strokeWeight:1,
+        } 
+        });
 
         // removeLine(traceroute_path); //Clear polyline everytime item is clicked
 
@@ -141,7 +157,7 @@ function initMap() {
   // });
 
    //Mouseover events listener
-   probes.addListener('mouseover', function(event) {
+   var probe_mousover_listener = probes.addListener('mouseover', function(event) {
 
         //Display infowindow
         infoWindow.setContent(event.feature.getProperty("name") + 
@@ -168,7 +184,7 @@ function initMap() {
       });//End event listener
 
    
-   probes.addListener('mouseout', function(event) {
+ var probe_mouseout_listener = probes.addListener('mouseout', function(event) {
     probes.revertStyle(styleProbeSymbol);
   });
 
