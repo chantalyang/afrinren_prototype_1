@@ -72,6 +72,7 @@ function initMap() {
         infoWindow.open(map,anchor);
 
         //Style 
+        target_ips.revertStyle();
         target_ips.overrideStyle(event.feature,
           {icon: {
             path: google.maps.SymbolPath.CIRCLE,
@@ -85,9 +86,15 @@ function initMap() {
       );         
       });
 
+   probes.addListener('mouseout', function(event) {
+    target_ips.revertStyle(
+      {icon: target_ip_symbol}
+      );
+  });
+
     
 
-    //Onclick events listener
+    //On click events listener
     target_ips.addListener('click', function(event) { 
 
         // removeLine(traceroute_path); //Clear polyline everytime item is clicked
@@ -151,7 +158,7 @@ function initMap() {
             path: probe_svg_path,
             fillColor: "red",
             fillOpacity: 0.5,
-        //strokeColor: "white", 
+        strokeColor: "white", 
         strokeWeight:2,
         anchor: new google.maps.Point(15,10)}
       }
