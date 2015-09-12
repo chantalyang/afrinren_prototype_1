@@ -1,10 +1,10 @@
 var map;
 var probe_svg_path = "M16,3.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.143,7.5,18.121,7.5,18.121S23.5,15.143,23.5,11C23.5,6.858,20.143,3.5,16,3.5z M16,14.584c-1.979,0-3.584-1.604-3.584-3.584S14.021,7.416,16,7.416S19.584,9.021,19.584,11S17.979,14.584,16,14.584z";
 var all_probes = [];
-var all_target_ips = [];
+var all_target_ips;
 var all_measurements = [];
 var all_traceroutes = [];
-var drawn_traceroutes =[];
+var drawn_traceroutes = [];
 
 // ------------- Initialise Map Function ------------ //
 function initMap() {
@@ -13,6 +13,7 @@ function initMap() {
 
   var target_ips = new google.maps.Data();
   var probes = new google.maps.Data();
+  var measurements = new google.maps.Data();
 
   var line_symbol = {
     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
@@ -30,6 +31,15 @@ function initMap() {
     fillOpacity: 1,
     strokeWeight:1,
   };
+
+  var opaque_ip_symbol = {
+              path: google.maps.SymbolPath.CIRCLE,
+              fillColor: "blue",
+              fillOpacity: 0.5,
+              scale: 6,
+              strokeColor: "white",
+              strokeWeight:2,
+            };
 
   var selected_ip = null;
   var traceroute_path = null;
@@ -59,6 +69,7 @@ function initMap() {
 
   /* Setup target_ip Markers */
   target_ips.loadGeoJson("/data/target_ips/target_ips.json");
+  all_target_ips = target_ips;
 
   target_ips.setStyle({
     icon: target_ip_symbol,
@@ -80,22 +91,15 @@ function initMap() {
 
         //Style
         if (selected_ip != null){ 
-          //If an IP is selected, don't reset the style while mousing over
+          selected_ip
         } 
-        else{
+        
           target_ips.revertStyle();
           target_ips.overrideStyle(event.feature,
-            {icon: {
-              path: google.maps.SymbolPath.CIRCLE,
-              fillColor: "blue",
-              fillOpacity: 0.5,
-              scale: 6,
-              strokeColor: "white",
-              strokeWeight:2,
-            }
+            {icon: opaque_ip_symbol
           }
           ); 
-        } 
+        
 
       });
 
@@ -103,11 +107,21 @@ function initMap() {
     //On click events listener
     var target_ips_click_listener = target_ips.addListener('click', function(event) { 
 
-      selected_ip = event.feature;
+        selected_ip = event.feature;
         //console.log(typeof selected_ip)
 
         //Style icon
         target_ips.revertStyle();//Reset the style of all target_ip clicks
+        target_ips.setStyle(
+          {icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              fillColor: "blue",
+              fillOpacity: 0.2,
+              scale: 6,
+              strokeColor: "black",
+              strokeWeight:0,
+            }});
+        
         target_ips.overrideStyle(event.feature,
          {icon: {
           path: google.maps.SymbolPath.CIRCLE,
@@ -116,7 +130,7 @@ function initMap() {
           scale: 9,
             //strokeColor: "white",
             strokeWeight:1,
-          } 
+          }, 
         });
 
         if (drawn_traceroutes.length == 1){
@@ -124,15 +138,13 @@ function initMap() {
           drawn_traceroutes = [];
         }
         
-        // removeLine(traceroute_path); //Clear polyline everytime item is clicked
-
         var target_ip_lat = event.feature.getGeometry().get().G
         var target_ip_long = event.feature.getGeometry().get().K
         //console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
 
        //Draw lines 
        var traceroute_path = new google.maps.Polyline({
-        path: [{lat: target_ip_lat, lng:target_ip_long}, {lat:36.816352,lng:-1.280702 }],
+        path: [{lat:15.609327 ,lng:32.54169999999999 }, {lat: target_ip_lat, lng:target_ip_long}],
         icons: [{
           icon: line_symbol,
           offset: '100%'
@@ -205,22 +217,23 @@ function initMap() {
   //Add layer to map
   probes.setMap(map);
 
-  // For debugging
-  //  target_ips.addListener('mouseover', function(event) {
-  //   var target_ip_lat = event.feature.getGeometry().get().G
-  //   var target_ip_long = event.feature.getGeometry().get().K
-  //   console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
-  // });
-
-  //  probes.addListener('mouseover', function(event) {
-  //   var probe_lat = event.feature.getGeometry().get().G
-  //   var probe_long = event.feature.getGeometry().get().K
-  //   console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
-
-  // });
+  /* Measurement Info */
 
 
 
+//  For debugging
+   target_ips.addListener('mouseover', function(event) {
+    var target_ip_lat = event.feature.getGeometry().get().G
+    var target_ip_long = event.feature.getGeometry().get().K
+    console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+  });
+
+   probes.addListener('mouseover', function(event) {
+    var probe_lat = event.feature.getGeometry().get().G
+    var probe_long = event.feature.getGeometry().get().K
+    console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
+
+  });
 
 }// -------- End initialise map function ------------- //
 
