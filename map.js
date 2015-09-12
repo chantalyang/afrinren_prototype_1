@@ -33,13 +33,13 @@ function initMap() {
   };
 
   var opaque_ip_symbol = {
-              path: google.maps.SymbolPath.CIRCLE,
-              fillColor: "blue",
-              fillOpacity: 0.5,
-              scale: 6,
-              strokeColor: "white",
-              strokeWeight:2,
-            };
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: "blue",
+    fillOpacity: 0.5,
+    scale: 6,
+    strokeColor: "white",
+    strokeWeight:2,
+  };
 
   var selected_ip = null;
   var traceroute_path = null;
@@ -94,9 +94,9 @@ function initMap() {
           selected_ip
         } 
         
-          target_ips.revertStyle();
-          target_ips.overrideStyle(event.feature,
-            {icon: opaque_ip_symbol
+        target_ips.revertStyle();
+        target_ips.overrideStyle(event.feature,
+          {icon: opaque_ip_symbol
           }
           ); 
         
@@ -107,20 +107,20 @@ function initMap() {
     //On click events listener
     var target_ips_click_listener = target_ips.addListener('click', function(event) { 
 
-        selected_ip = event.feature;
+      selected_ip = event.feature;
         //console.log(typeof selected_ip)
 
         //Style icon
         target_ips.revertStyle();//Reset the style of all target_ip clicks
         target_ips.setStyle(
           {icon: {
-              path: google.maps.SymbolPath.CIRCLE,
-              fillColor: "blue",
-              fillOpacity: 0.2,
-              scale: 6,
-              strokeColor: "black",
-              strokeWeight:0,
-            }});
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: "blue",
+            fillOpacity: 0.2,
+            scale: 6,
+            strokeColor: "black",
+            strokeWeight:0,
+          }});
         
         target_ips.overrideStyle(event.feature,
          {icon: {
@@ -155,10 +155,10 @@ function initMap() {
         strokeWeight: 3
       });
 
-     drawn_traceroutes.push(traceroute_path);
+       drawn_traceroutes.push(traceroute_path);
 
-     addLine(traceroute_path);
-     animateArrow(traceroute_path);
+       addLine(traceroute_path);
+       animateArrow(traceroute_path);
 
       });//End click event
 
@@ -220,20 +220,32 @@ function initMap() {
   /* Measurement Info */
 
 
+/* Map Legend */
+ map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+      document.getElementById('legend'));
+var legend = document.getElementById('legend');
+for (var style in styles) {
+  var name = style.name;
+  var icon = style.icon;
+  var div = document.createElement('div');
+  div.innerHTML = '<img src="' + icon + '"> ' + name;
+  legend.appendChild(div);
+}
+
 
 //  For debugging
-   target_ips.addListener('mouseover', function(event) {
-    var target_ip_lat = event.feature.getGeometry().get().G
-    var target_ip_long = event.feature.getGeometry().get().K
-    console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
-  });
+target_ips.addListener('mouseover', function(event) {
+  var target_ip_lat = event.feature.getGeometry().get().G
+  var target_ip_long = event.feature.getGeometry().get().K
+  console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+});
 
-   probes.addListener('mouseover', function(event) {
-    var probe_lat = event.feature.getGeometry().get().G
-    var probe_long = event.feature.getGeometry().get().K
-    console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
+probes.addListener('mouseover', function(event) {
+  var probe_lat = event.feature.getGeometry().get().G
+  var probe_long = event.feature.getGeometry().get().K
+  console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
 
-  });
+});
 
 }// -------- End initialise map function ------------- //
 
