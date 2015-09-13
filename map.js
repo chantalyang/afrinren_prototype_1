@@ -93,8 +93,8 @@ function initMap() {
         //Style
         if (selected_ip != null){ 
         } 
-        
-       // target_ips.revertStyle();
+        else{}
+        target_ips.revertStyle();
        target_ips.overrideStyle(event.feature,
         {icon: opaque_ip_symbol
         }
@@ -124,6 +124,12 @@ function initMap() {
 
 
           }});
+
+        // measurement_1.addListener('mouseover', function(event) {
+        //   var info_box = document.getElementById('info-box');
+        //    info_box.textContent = "Hop Number: " + event.feature.getProperty('hop_num');
+        //     });
+
 
        //  all_measurements = measurement_1;
 
@@ -196,6 +202,8 @@ function initMap() {
       target_ips.setMap(map);
 
 
+
+      
       /* Setup probe markers */
 
       probes.loadGeoJson("/data/probes/probes.json");
@@ -247,19 +255,29 @@ function initMap() {
   //Add layer to map
   probes.setMap(map);
 
-  /* Measurement Info */
-  
-
-  var meas_mouseover_listener = measurement_1.addListener("mouseover", function(event){
-    console.log(event.feature.getProperty("hop_num"));
-
-  });
+ 
 
 
   /* Map Legend */
-  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
-    document.getElementById('legend'));
-  var legend = document.getElementById('legend');
+
+
+  // var legend = document.getElementById('legend');
+
+  // var legend = document.createElement('div');
+  // legend.id = 'legend';
+  // legend.style.paddingLeft = "10px";
+  // var content = [];
+  // content.push('<h3>Butterflies*</h3>');
+  // content.push('<p><div class="color red"></div>Battus</p>');
+  // content.push('<p><div class="color yellow"></div>Speyeria</p>');
+  // content.push('<p><div class="color green"></div>Papilio</p>');
+  // content.push('<p><div class="color blue"></div>Limenitis</p>');
+  // content.push('<p><div class="color purple"></div>Myscelia</p>');
+  // content.push('<p>*Data is fictional</p>');
+  // legend.innerHTML = content.join('');
+  // legend.index = 1;
+  // map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend);
+  
 
 
 
