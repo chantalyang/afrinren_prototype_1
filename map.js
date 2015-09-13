@@ -3,6 +3,7 @@ var probe_svg_path = "M16,3.5c-4.142,0-7.5,3.358-7.5,7.5c0,4.143,7.5,18.121,7.5,
 var all_probes = [];
 var all_target_ips;
 var all_measurements = [];
+var all_hops = [];
 var all_traceroutes = [];
 var drawn_traceroutes = [];
 
@@ -103,28 +104,33 @@ function initMap() {
      });
 
 
+
     //On click events listener
     var target_ips_click_listener = target_ips.addListener('click', function(event) { 
 
       selected_ip = event.feature;
-        //console.log(typeof selected_ip)
 
-        if (selected_ip.getProperty("ip_address") == "41.223.156.170"){
-
-          measurement_1.loadGeoJson("/data/measurements/41_223_156_170.json");
-          measurement_1.setMap(map);
-          measurement_1.setStyle({
-            icon:{
-              path: google.maps.SymbolPath.CIRCLE,
-              scale:4,
-              fillColor: 'yellow',
-              fillOpacity: 1,
-              strokeWeight:1,
+      if (selected_ip.getProperty("ip_address") == "41.223.156.170"){
+        measurement_1.loadGeoJson("/data/measurements/41_223_156_170.json");
+        measurement_1.setMap(map);
+        measurement_1.setStyle({
+          icon:{
+            path: google.maps.SymbolPath.CIRCLE,
+            scale:4,
+            fillColor: 'yellow',
+            fillOpacity: 1,
+            strokeWeight:1,
 
 
 
-            }});
-        }
+          }});
+
+       //  all_measurements = measurement_1;
+
+       // all_measurements.forEach(function(feature){
+       //    console.log(feature.getGeometry().get().G);
+       //  });
+      }
 
         //Style icon
         target_ips.revertStyle();//Reset the style of all target_ip clicks
@@ -154,13 +160,21 @@ function initMap() {
           drawn_traceroutes = [];
         }
         
-        var target_ip_lat = event.feature.getGeometry().get().G
-        var target_ip_long = event.feature.getGeometry().get().K
+        var target_ip_lat = event.feature.getGeometry().get().G;
+        var target_ip_long = event.feature.getGeometry().get().K;
         //console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+
+        var hop_path = [
+        {lat:2.00 ,lng:39.00 }, 
+        {lat:1.00 ,lng:38.00 }, 
+        {lat:-29.00 ,lng:24.00 }, 
+        {lat:52.349998 ,lng: 4.916700 }, 
+       {lat:38.713902  ,lng: -9.139400 }, 
+        {lat: target_ip_lat, lng:target_ip_long}]
 
        //Draw lines 
        var traceroute_path = new google.maps.Polyline({
-        path: [{lat:15.609327 ,lng:32.54169999999999 }, {lat: target_ip_lat, lng:target_ip_long}],
+        path: hop_path,
         icons: [{
           icon: line_symbol,
           offset: '100%'
@@ -250,18 +264,18 @@ function initMap() {
 
 
 //  For debugging
-target_ips.addListener('mouseover', function(event) {
-  var target_ip_lat = event.feature.getGeometry().get().G
-  var target_ip_long = event.feature.getGeometry().get().K
-  console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
-});
+// target_ips.addListener('mouseover', function(event) {
+//   var target_ip_lat = event.feature.getGeometry().get().G
+//   var target_ip_long = event.feature.getGeometry().get().K
+//   console.log("TargetIP - lat:" + target_ip_lat + " long:" + target_ip_long);
+// });
 
-probes.addListener('mouseover', function(event) {
-  var probe_lat = event.feature.getGeometry().get().G
-  var probe_long = event.feature.getGeometry().get().K
-  console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
+// probes.addListener('mouseover', function(event) {
+//   var probe_lat = event.feature.getGeometry().get().G
+//   var probe_long = event.feature.getGeometry().get().K
+//   console.log("Probe - lat:" + probe_lat + " long:" + probe_long);
 
-});
+// });
 
 }// -------- End initialise map function ------------- //
 

@@ -117,6 +117,19 @@
     "name":"Rhodes",
     "type":"university"
     }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [39.00, 2.00]
+    },
+    "properties": {
+    "probe_id":13100,
+    "asn":327687,
+    "name":"KENET",
+    "type":"nren"
+    }
   }
 ]
 }
