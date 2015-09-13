@@ -22,3 +22,8 @@
     background: white;
     padding: 10px;
   }
+
+  #fibre_legend {
+    height: 360px;
+    width: 320px;
+  }

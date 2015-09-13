@@ -66,7 +66,7 @@ function initMap() {
   imageBounds);
 
  cableOverlay.setOpacity(0.6)
- //cableOverlay.setMap(map);
+ cableOverlay.setMap(map);
 
  /* Setup target_ip Markers */
  target_ips.loadGeoJson("/data/target_ips/target_ips.json");
@@ -130,7 +130,7 @@ function initMap() {
        // all_measurements.forEach(function(feature){
        //    console.log(feature.getGeometry().get().G);
        //  });
-      }
+}
 
         //Style icon
         target_ips.revertStyle();//Reset the style of all target_ip clicks
@@ -169,7 +169,7 @@ function initMap() {
         {lat:1.00 ,lng:38.00 }, 
         {lat:-29.00 ,lng:24.00 }, 
         {lat:52.349998 ,lng: 4.916700 }, 
-       {lat:38.713902  ,lng: -9.139400 }, 
+        {lat:38.713902  ,lng: -9.139400 }, 
         {lat: target_ip_lat, lng:target_ip_long}]
 
        //Draw lines 
@@ -295,7 +295,7 @@ function removeLine(polyline){
 function animateArrow(line) {
   var count = 0;
   window.setInterval(function() {
-      count = (count + 1) % 200; //increase % for time
+      count = (count + 0.9) % 200; //change count number to make arrow slower
 
       var icons = line.get('icons');
       icons[0].offset = (count / 2) + '%';
