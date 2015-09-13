@@ -13,7 +13,7 @@ function initMap() {
 
   var target_ips = new google.maps.Data();
   var probes = new google.maps.Data();
-  var measurements = new google.maps.Data();
+  var measurement_1 = new google.maps.Data();
 
   var line_symbol = {
     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
@@ -64,21 +64,21 @@ function initMap() {
   '/overlays/links.png',
   imageBounds);
 
- cableOverlay.setOpacity(0.7)
-  //cableOverlay.setMap(map);
+ cableOverlay.setOpacity(0.6)
+ //cableOverlay.setMap(map);
 
-  /* Setup target_ip Markers */
-  target_ips.loadGeoJson("/data/target_ips/target_ips.json");
-  all_target_ips = target_ips;
+ /* Setup target_ip Markers */
+ target_ips.loadGeoJson("/data/target_ips/target_ips.json");
+ all_target_ips = target_ips;
 
-  target_ips.setStyle({
-    icon: target_ip_symbol,
-    clickable: true
-  });
+ target_ips.setStyle({
+  icon: target_ip_symbol,
+  clickable: true
+});
 
-  var  infoWindow = new google.maps.InfoWindow({
-    content: "",
-  });
+ var  infoWindow = new google.maps.InfoWindow({
+  content: "",
+});
 
   //Mouseover events listener
   var target_ip_mouseover_listener = target_ips.addListener('mouseover', function(event) {
@@ -91,17 +91,16 @@ function initMap() {
 
         //Style
         if (selected_ip != null){ 
-          selected_ip
         } 
         
-        target_ips.revertStyle();
-        target_ips.overrideStyle(event.feature,
-          {icon: opaque_ip_symbol
-          }
-          ); 
-        
+       // target_ips.revertStyle();
+       target_ips.overrideStyle(event.feature,
+        {icon: opaque_ip_symbol
+        }
+        ); 
 
-      });
+
+     });
 
 
     //On click events listener
@@ -110,13 +109,30 @@ function initMap() {
       selected_ip = event.feature;
         //console.log(typeof selected_ip)
 
+        if (selected_ip.getProperty("ip_address") == "41.223.156.170"){
+
+          measurement_1.loadGeoJson("/data/measurements/41_223_156_170.json");
+          measurement_1.setMap(map);
+          measurement_1.setStyle({
+            icon:{
+              path: google.maps.SymbolPath.CIRCLE,
+              scale:4,
+              fillColor: 'yellow',
+              fillOpacity: 1,
+              strokeWeight:1,
+
+
+
+            }});
+        }
+
         //Style icon
         target_ips.revertStyle();//Reset the style of all target_ip clicks
         target_ips.setStyle(
           {icon: {
             path: google.maps.SymbolPath.CIRCLE,
             fillColor: "blue",
-            fillOpacity: 0.2,
+            fillOpacity: 0.4,
             scale: 6,
             strokeColor: "black",
             strokeWeight:0,
@@ -218,19 +234,19 @@ function initMap() {
   probes.setMap(map);
 
   /* Measurement Info */
+  
+
+  var meas_mouseover_listener = measurement_1.addListener("mouseover", function(event){
+    console.log(event.feature.getProperty("hop_num"));
+
+  });
 
 
-/* Map Legend */
- map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
-      document.getElementById('legend'));
-var legend = document.getElementById('legend');
-for (var style in styles) {
-  var name = style.name;
-  var icon = style.icon;
-  var div = document.createElement('div');
-  div.innerHTML = '<img src="' + icon + '"> ' + name;
-  legend.appendChild(div);
-}
+  /* Map Legend */
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+    document.getElementById('legend'));
+  var legend = document.getElementById('legend');
+
 
 
 //  For debugging
@@ -285,7 +301,7 @@ function styleProbeSymbol(feature){
   }
 
   else if (feature.getProperty("type") == "university"){
-    colour = "orange";
+    colour = "magenta";
   }
 
   return {
