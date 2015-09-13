@@ -3,8 +3,6 @@ jsonFile = open('41_223_156_170.json', 'r')
 parsed_json = json.load(jsonFile)
 jsonFile.close()
 
-print(parsed_json['lts'])
-
 
 def convert_json(items):
     import json
@@ -21,3 +19,6 @@ def convert_json(items):
                                      for feature in json.loads(items)
                                     ]
                        })
+
+
+convert_json("msm_id: 2403255"); 
